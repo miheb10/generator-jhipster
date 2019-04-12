@@ -63,7 +63,14 @@
             <%_ } _%>
             <th></th>
             </tr>
-            </thead>
+            <div [ngGrid]="{'resizeable': false">
+                <div *ngFor=" <%=entityInstance %> of <%=entityInstancePlural %> " [ngGridItem]>
+                    <div
+                      class="title">{{box.title}}
+                    </div>
+                </div>
+            </div>
+          </thead>
             <tbody<% if (pagination === 'infinite-scroll') { %> infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0"<% } %>>
             <tr *ngFor="let <%=entityInstance %> of <%=entityInstancePlural %> ;trackBy: trackId">
                 <td><a [routerLink]="['/<%= entityUrl %>', <%= entityInstance %>.id, 'view' ]">{{<%=entityInstance %>.id}}</a></td>
