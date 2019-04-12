@@ -22,7 +22,7 @@ import { RouterModule } from '@angular/router';
 import { JhiLanguageService } from 'ng-jhipster';
 import { JhiLanguageHelper } from 'app/core';
 <%_ } _%>
-
+import { QRCodeModule } from 'angular2-qrcode';
 import { <%= angularXAppName %>SharedModule } from 'app/shared';
 import {
     <%= entityAngularName %>Component,
@@ -42,7 +42,8 @@ const ENTITY_STATES = [
 @NgModule({
     imports: [
         <%= angularXAppName %>SharedModule,
-        RouterModule.forChild(ENTITY_STATES)
+        RouterModule.forChild(ENTITY_STATES),
+        QRCodeModule
     ],
     declarations: [
         <%= entityAngularName %>Component,
